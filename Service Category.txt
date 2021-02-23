@@ -1,0 +1,125 @@
+Service Categaory Collection
+
+-- _id
+-- Name
+-- Salon for Womens: [
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+														]
+															....
+										}
+						},
+						....
+				]
+
+-- Salon for Men:[
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+															....
+														]
+										}
+						},
+						....
+				]
+
+-- Appliance Repair: [
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+															....
+														]
+										}
+						},
+						....
+				]
+
+
+
+-- Urban Cleaning: [
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+															....
+														]
+										}
+						},
+						....
+				]
+
+-- Urban Painting: [
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+															....
+														]
+										}
+						},
+						....
+				]
+
+-- Other services: [
+						{
+							Service 1: {
+												Service Id,
+												Name of Service,
+												Picture,
+												Rating,
+												Price,
+												Time,
+												Details,
+												Ingredients,
+												Reviews: [
+															Review id,	(Ref: Review Collection)
+															....
+														]
+										}
+						},
+						....
+				]

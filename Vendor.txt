@@ -1,0 +1,18 @@
+Vendor Collection
+
+-- _id
+-- Name
+-- Service:[	// Could have multiple services so 1:many
+			Service id 1,	(Ref: Service Collection)
+			Service id2,
+			..
+			..
+		]
+-- Experience
+-- City: [	// Will have single city at a time so 1:1
+			City Id	(Ref: City Collection)
+		]
+-- Password
+-- Email
+-- Pan Card Details
+-- Address

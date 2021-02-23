@@ -1,0 +1,7 @@
+Collections:
+
+1) User
+2) Service List
+3) Vendor
+4) City
+5) Review

@@ -1,0 +1,15 @@
+City Collection
+
+-- Country: [
+                India: 
+                    {
+                        City: 'Ahmedabad'                    
+                    },
+                Australia: {
+
+                },
+                UAE: {
+
+                },
+                
+            ]

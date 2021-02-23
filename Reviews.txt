@@ -1,0 +1,21 @@
+Reviews Collections
+
+-- Service Name
+-- User Name
+-- Message
+-- Ratings
+
+[
+    Service 1: 
+    User Id: {
+                ref: 'User',
+                this.service === user.service,
+                msg,
+                rating
+            },
+    ],
+    Service 2: [
+        ...
+    ],
+    ...
+] 

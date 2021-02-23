@@ -1,0 +1,25 @@
+User Collection
+
+-- _id,
+-- Name: '',
+-- Email: '',
+-- Mobile No.: '',
+-- City: [		// Will have single city at a time so 1:1
+			City id (Ref: City Collection)
+		],
+-- Bookings List: [	// Will have multiple Bookings so 1:many
+					{
+						Service id,	(Ref: Service Collection)
+						Vendor id,	(Ref: Vendor collection)
+						Service Price	(Ref: Service Collection),
+						quantity,
+						Rating,
+						Message
+					},
+					{
+					...
+					},
+					...
+					...
+				],
+-- Password: ###	(Hide)
