@@ -23,19 +23,7 @@ const customerSchema = new mongoose.Schema({
     customerStatus:{
         type:String,
         default:'active'               
-    },
-    customerReviews:{
-        reviewerName:{
-            type:String,
-            default:this.customerName
-        },
-        reviewMessage:String,
-        reviewRating:{
-            type:Number,
-            min:[1,'rating is >= 1'],
-            max:[5,'rating is <= 5']    
-        }
-    }   
+    }
 });
 
 const Customer = mongoose.model('Customer',customerSchema);

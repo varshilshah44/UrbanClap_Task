@@ -11,7 +11,7 @@ const mobileVerificationSchema = new mongoose.Schema({
     },
     mobileVerificationOtpExpire:{
         type:Date,
-        default:Date.now() + (30 * 1000)
+        default:Date.now() + (60 * 1000)
     },
     userType:{
         type:String,

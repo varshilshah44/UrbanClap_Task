@@ -1,7 +1,7 @@
 const mongoose = require('../dbconnection');
 const Service = require('./ServicesModel');
 const ServiceCategory = require('./ServiceCategoryModel');
-
+const ServiceProvider = require('./ServiceProviderModel');
 const BookingSchema = new mongoose.Schema({ 
     customerName:{
         type:String,
@@ -29,7 +29,7 @@ const BookingSchema = new mongoose.Schema({
         type:String,
         required:[true,'time is required']
     },
-    services:[{
+    services:{
         serviceId:{
             type:mongoose.Schema.ObjectId,
             ref:'Service',
@@ -55,7 +55,7 @@ const BookingSchema = new mongoose.Schema({
             type:mongoose.Schema.ObjectId,
             ref:'ServiceCategory'
         }
-    }],
+    },
     totalPrice:{
         type:Number,
         required:[true,'totalPrice is required']
@@ -66,7 +66,12 @@ const BookingSchema = new mongoose.Schema({
     },
     bookingStatus:{
         type:String
+    },
+    serviceProvider:{
+        type:mongoose.Schema.ObjectId,
+        ref:'ServiceProvider'
     }
+
 });
 
 const Booking = mongoose.model('Booking',BookingSchema);

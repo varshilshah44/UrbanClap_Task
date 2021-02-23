@@ -86,7 +86,12 @@ const serviceProviderSchema = new mongoose.Schema({
     serviceProviderStatus:{
         type:String,
         default:'active'
-    }
+    },
+    serviceProviderTotalCredits:{
+        type:Number,
+        default:0
+    }, 
+    isBusy:Boolean
     
 });
 

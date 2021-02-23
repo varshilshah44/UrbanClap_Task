@@ -5,7 +5,8 @@ const ServicesSchema = new mongoose.Schema({
     serviceName:{
         type:String,
         required:[true,'ServiceName must required'],
-        validate:[/^[a-zA-Z\s]+$/,'ServiceName only contains alphabets and spaces']
+        validate:[/^[a-zA-Z\s]+$/,'ServiceName only contains alphabets and spaces'],
+        unique:true
     },
     ServiceCategoryId:{
         type:mongoose.Schema.ObjectId,
@@ -27,7 +28,25 @@ const ServicesSchema = new mongoose.Schema({
         },
         description:{
             type:String
-        }
+        },
+        reviews:[{
+            reviewerName:{
+                type:String,
+                default:'I am Bhoot'
+            },
+            message:{
+                type:String
+            },
+            rating:{
+                type:Number,
+                min:[1,'rating is >= 1'],
+                max:[5,'rating is <= 5']
+            },
+            serviceProviderId:{
+                type:mongoose.Schema.ObjectId,
+                ref:'ServiceProvider' 
+            }   
+        }]
     }]
 });
 
