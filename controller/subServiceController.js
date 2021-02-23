@@ -30,11 +30,13 @@ exports.createServiceArray = async (req, res, next) => {
 // ADD SERVICE INSIDE SUBSERVICE ARRAY
 exports.addService = async (req, res, next) => {
     try {
-        console.log("Sub Services....");
-        // if(!req.body.name || !req.body.picture)  throw new Error('One or more detail is missing')
+        const cmp =  await {...subService.find().select('options')};
+        // console.log(cmp);
+        if(!req.body.name || !req.body.picture)  throw new Error('One or more detail is missing')
         const data =
             // await subService.create(req.body);
-            await subService.findByIdAndUpdate(req.params.id, { "$push": { "options": req.body } }, {
+            await subService.findByIdAndUpdate(req.params.id, { "$addToSet": { "options": req.body } }, {
+                new: true,
                 runValidators: true
             });
         console.log('DATA: ', data);        

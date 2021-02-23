@@ -9,6 +9,10 @@ const serviceSchema = new mongoose.Schema({
     },
     picture: {
         type: String
+    },
+    city:{
+        type: String,
+        required: true
     }
 }, { collection: 'Service' });
 

@@ -11,12 +11,24 @@ const bookingListSchema = new mongoose.Schema(
             },
             vendorId: {
                 type: mongoose.Types.ObjectId,      // Can get vendor number through ref
-                ref: 'Vendor',
-                required: [true, 'Vendor Id is required']
+                ref: 'Vendor'
+                // required: [true, 'Vendor Id is required']
+            },
+            userId:{
+                type:mongoose.Types.ObjectId,
+                ref:'User'
             },
             quantity: {
                 type: Number,
                 default: 1
+            },
+            serviceStartTime:{
+                type: Date,
+                required: true
+            },
+            serviceEndTime:{
+                type: Date,
+                required: true
             },
             price: {
                 type: Number,
@@ -32,6 +44,14 @@ const bookingListSchema = new mongoose.Schema(
             },
             message: {
                 type: String
+            },
+            status: {
+                type: String,
+                enum: ['Completed','Upcoming','Canceled','InProgress']
+            },
+            paymentType: {
+                type: mongoose.Types.paymentOption.paymentType,
+                ref:'User'
             }
         }
     ]
