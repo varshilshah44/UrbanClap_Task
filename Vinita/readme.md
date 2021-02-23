@@ -1,0 +1,1 @@
+Mimicking the urban Clap (Urban Company) database schema using mongoose
