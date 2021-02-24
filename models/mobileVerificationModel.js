@@ -1,4 +1,5 @@
 const mongoose = require('../dbconnection');
+const bcrypt = require('bcryptjs');
 
 const mobileVerificationSchema = new mongoose.Schema({
     mobileNo:{
@@ -7,16 +8,30 @@ const mobileVerificationSchema = new mongoose.Schema({
         validate:[/^(\+\d{1,3}[- ]?)?\d{10}$/,'MobileNo is not valid']
     },
     mobileVerificationOtp:{
-        type:Number
+        type:String
     },
     mobileVerificationOtpExpire:{
         type:Date,
-        default:Date.now() + (60 * 1000)
     },
     userType:{
         type:String,
-        enum:['partner','customer']
+        enum:{
+            values:['partner','customer'],
+            message:'userType must be between partner or customer'
+        }
     }
 });
 
+mobileVerificationSchema.pre('save',async function(next){
+    if(this.mobileVerificationOtp){
+    this.mobileVerificationOtp = await bcrypt.hash(this.mobileVerificationOtp,12);
+    next();
+    }
+})
+
+mobileVerificationSchema.methods.compareOtp = async function(userOtp,storedOtp){
+      return await bcrypt.compare(userOtp,storedOtp)
+}
+
 const mobileVerification = mongoose.model('mobileVerification',mobileVerificationSchema);
+module.exports = mobileVerification;

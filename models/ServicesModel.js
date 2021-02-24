@@ -52,28 +52,3 @@ const ServicesSchema = new mongoose.Schema({
 
 const Service = mongoose.model('Service',ServicesSchema);
 module.exports = Service;
-
-//testing
-
-/* const serviceObj = {
-    serviceName:'abc',
-    ServiceCategoryId:'602f4ffee8cc7241706ae2e9',
-    workType:{
-        name:'abcc',
-        price:100,
-        image:'image1',
-        description:'this is description'
-    }
-}
-
-const createServices = async () => {
-    try{
-    const service = await Service.create(serviceObj);
-    console.log("added");
-    }
-    catch(err){
-        console.log(err.message);
-    }
-}
-
-createServices(); */

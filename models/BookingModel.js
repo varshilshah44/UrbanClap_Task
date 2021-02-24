@@ -2,20 +2,11 @@ const mongoose = require('../dbconnection');
 const Service = require('./ServicesModel');
 const ServiceCategory = require('./ServiceCategoryModel');
 const ServiceProvider = require('./ServiceProviderModel');
+const Customer = require('./CustomerModel');
 const BookingSchema = new mongoose.Schema({ 
-    customerName:{
-        type:String,
-        required:[true,'customerName is required'],
-        validate:[/^[a-zA-Z\s]+$/,'customerName is not valid']
-    },
-    customerMobileNo:{
-        type:String,
-        required:[true,'MobileNo must be required'],
-        validate:[/^(\+\d{1,3}[- ]?)?\d{10}$/,'MobileNo is not valid']
-    },
-    address:{
-        type:String,
-        required:[true,'address must be required']
+    customerId:{
+        type:mongoose.Schema.ObjectId,
+        ref:'Customer'
     },
     serviceDate:{
         type:Date,
@@ -33,8 +24,9 @@ const BookingSchema = new mongoose.Schema({
         serviceId:{
             type:mongoose.Schema.ObjectId,
             ref:'Service',
-            required:[true,'serviceId is required'],
-            workTypeDetails:[
+            required:[true,'serviceId is required']
+        },
+        workTypeDetails:[
                 {
                     workTypeName:{
                         type:String,
@@ -49,8 +41,7 @@ const BookingSchema = new mongoose.Schema({
                         required:[true,'price is required']
                     }
                 }
-            ]
-        },
+        ],
         ServiceCategoryId:{
             type:mongoose.Schema.ObjectId,
             ref:'ServiceCategory'
@@ -67,7 +58,7 @@ const BookingSchema = new mongoose.Schema({
     bookingStatus:{
         type:String
     },
-    serviceProvider:{
+    serviceProviderId:{
         type:mongoose.Schema.ObjectId,
         ref:'ServiceProvider'
     }
@@ -77,32 +68,3 @@ const BookingSchema = new mongoose.Schema({
 const Booking = mongoose.model('Booking',BookingSchema);
 module.exports = Booking;
 
-//testing
-/* const obj = {
-    customerName:'Varshil',
-    serviceProviderId:'602f883fad1b0e24e8cd1fff',
-    customerMobileNo:'9428712306',
-    address:'c-7,nirav flat,shantivan,paldi,ahmedabad-380007',
-    date:new Date(),
-    time:'5:30',
-    services:{
-        serviceId:'602f6580229b675088f1aa66',
-        workTypeName:'abcc',
-        qty:3,
-        price:300       //100 for each service
-    },
-    totalPrice:300,
-    paymentMode:'cash'
-}
-
-const createBooking = async () => {
-    try{
-    await Booking.create(obj);
-    console.log("added")
-    }
-    catch(err){
-        console.log(err.message);
-    }
-}
-
-createBooking(); */

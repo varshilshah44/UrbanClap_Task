@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use('/api/mobileRegistration',mobileRegistrationRouter);
 
-app.use((err,res) => { 
+app.use((err,req,res,next) => {
      res.status(err.statusCode).json({
          status:'error',
          message:err.message

@@ -15,21 +15,3 @@ const ServiceCategorySchema = new mongoose.Schema({
 const ServiceCategory = mongoose.model('ServiceCategory',ServiceCategorySchema);
 module.exports = ServiceCategory;
 
-
-//testing 
-
-/* const obj = {
-    serviceCategoryName:'hello',
-    serviceCategoryImages:['abc','pqr']
-}
-
-const createCategory = async () => {
-    try{
-    const serviceCategory = await ServiceCategory.create(obj);
-    console.log('added');
-    }
-    catch(err){
-        console.log('\nError ⚡ ' + err.message);
-    }
-}
-createCategory();  */   

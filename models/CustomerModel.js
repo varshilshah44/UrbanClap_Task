@@ -7,7 +7,7 @@ const customerSchema = new mongoose.Schema({
         default:'Verified Customer',
         validate:[/^[a-zA-Z\s]+$/,'Name only contains alphabets and spaces']
     },
-    customerEmail:{
+     customerEmail:{
         type:String,
         validate:[validator.isEmail,'Email is not valid'],
         unique:true     
@@ -20,11 +20,19 @@ const customerSchema = new mongoose.Schema({
     customerAddress:{
         type:String
     },
-    customerStatus:{
-        type:String,
-        default:'active'               
+    isActive:{
+        type:Boolean,
+        default:true
+    },
+    creaatedAt:{
+        type:Date
     }
 });
+
+customerSchema.pre('save',function(next){
+    this.customerEmail = undefined;
+    next();
+})
 
 const Customer = mongoose.model('Customer',customerSchema);
 

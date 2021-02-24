@@ -14,7 +14,7 @@ const serviceProviderSchema = new mongoose.Schema({
         unique:true,
         validate:[/^(\+\d{1,3}[- ]?)?\d{10}$/,'MobileNo is not valid']
     },
-    email:{
+    serviceProviderEmail:{
         type:String,
         validate:[validator.isEmail,'Email is not valid'],
         unique:true     
@@ -75,7 +75,7 @@ const serviceProviderSchema = new mongoose.Schema({
     serviceProviderAddress:{
         flatNo:String,
         street:String,
-        pincode:String,
+        pincode:Number,
         city:String,
         state:String
     },
@@ -83,48 +83,16 @@ const serviceProviderSchema = new mongoose.Schema({
         type:String
     },
     serviceProviderCertificates:[String],
-    serviceProviderStatus:{
-        type:String,
-        default:'active'
+    isActive:{
+        type:Boolean,
+        default:true
     },
     serviceProviderTotalCredits:{
         type:Number,
         default:0
-    }, 
-    isBusy:Boolean
+    }
     
 });
 
 const ServiceProvider = mongoose.model('ServiceProvider',serviceProviderSchema);
 module.exports = ServiceProvider;
-
-//testing
-
-/*  const obj = {
-    serviceProviderName:'varshil',
-    serviceProviderMobileNo:'9428712305',
-    email:'varshilshah444@gmail.com',
-    serviceCategoryId:'602f4ffee8cc7241706ae2e9',
-    serviceProviderDocument:{
-        documentName:'pan card',
-        documentHolderName:'varshil',
-        documentNumber:'JQWPS3091J',
-        documentImage:'image1'
-    },
-    serviceProviderPersonalInformation:{
-        gender:'male',
-        dateOfBirth:new Date(),
-        image:'image1'
-    },
-    serviceProviderCertificates:['cer1','cer2']
-}
-const createServiceProvider = async () => {
-    try{
-        await ServiceProvider.create(obj);
-        console.log("added");
-        }
-        catch(err){
-            console.log(err.message);
-        }
-}
-createServiceProvider();  */
