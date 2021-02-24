@@ -1,2 +1,2 @@
 # Urban Clap Schema model
-![Schema](Vinita/images/urbanclp.jpg)
+![Schema](Vinita/urbanClapSchema/images/urbanclp.jpg)
